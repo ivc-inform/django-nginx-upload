@@ -17,21 +17,18 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 '''
 
-from django.views.generic.base import TemplateView
-from upload.main import views
 from django.contrib import admin
 from django.urls import path, re_path
+from django.views.generic.base import TemplateView
+
+from upload.main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^complete?/$', views.upload_complete, name='upload_complete'),
-    path('robots\.txt/',TemplateView.as_view(template_name='main/robots.txt', 
-                                               content_type='text/plain')),
+    path('robots\.txt/', TemplateView.as_view(template_name='main/robots.txt', Zcontent_type='text/plain')),
 
     re_path(r'^$', views.UploadView.as_view(), name="index"),
     re_path(r'^table?/$', views.TableView.as_view(), name="table"),
 
 ]
-
-
-

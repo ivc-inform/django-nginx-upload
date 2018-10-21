@@ -1,0 +1,134 @@
+pip3 freeze --local > requirements.txt
+pip3 install --no-cache-dir -r ./requirements.txt
+
+python3 frepplectl.py runserver 0:8000
+python3 frepplectl.py runserver 0:8001
+
+pip3 install --upgrade pip
+
+python3 frepplectl.py sqlmigrate -v3 common 0001
+
+python3 frepplectl.py makemigrations
+python3 frepplectl.py migrate
+
+python3 frepplectl.py compilemessages --locale ru
+
+pip install -e /home/ayudin/VirtualBox/GIT-HUB/django
+pip install --index-url https://test.pypi.org/simple/ isc-py-common
+
+pip install --no-cache-dir -e /home/ayudin/Job/isc-py-common
+
+docker run \
+--name pgAdmin4 \
+--restart on-failure:5 \
+-p 88:80 \fig
+-e "PGADMIN_DEFAULT_EMAIL=uag@ivc-inform.ru" \
+-e "PGADMIN_DEFAULT_PASSWORD=Uandrew1965" \
+-d dpage/pgadmin4:3.3
+
+python3 frepplectl.py compilemessages --locale=ru
+python3 frepplectl.py makemessages --locale=ru
+
+sudo -H pip install --no-cache-dir -r ./re192quirements.txt
+sudo -H pip install --upgrade pip
+
+git clone github@192.168.8.43:~/informica
+
+systemctl restart nginx
+systemctl daemon-reload
+
+git push http://toucan.simplesys.lan/scm-manager/git/ivc-inform/informica
+
+wget https://www.python.org/ftp/python/3.6.6/Python-3.6.6.tar.xz &&  tar xvf Python-3.6.6.tar.xz && cd Python-3.6.6/ && ./configure --enable-shared && make && make install
+
+wget http://mirror.linux-ia64.org/apache//xerces/c/3/sources/xerces-c-3.2.1.zip && unzip xerces-c-3.2.1.zip && cd xerces-c-3.2.1/ && ./configure && make && make install
+
+docker run --privileged -d --restart on-failure:5 --name ubuntu_1604 ivcinform/ubuntu:16.04 init
+docker run --privileged -d --restart on-failure:5 --name ubuntu_1604 ubuntu:16.04 init
+docker commit ubuntu_1604 ivcinform/ubuntu:16.04
+docker push ivcinform/ubuntu:16.04
+
+docker run  -d --restart on-failure:5 -p 5432:5432 --name postgres_105 postgres:10.5
+
+sudo nano  /etc/apt/sources.list
+deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main >> /etc/apt/sources.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt install postgresql-client-10
+
+python3 -m django --version
+
+mkvirtualenv --python=python3.6 django-nginx-upload
+
+useradd -m -G sudo -s /bin/bash informica
+passwd informica
+
+/var/lib/lxc/frepple-500
+scp green@192.168.3.15:/mnt/HDD1200G/dump/vzdump-lxc-113-2018_10_06-14_46_29.tar.gz ./
+tar -xvzf vzdump-lxc-112-2018_09_10-13_08_23.tar.gz
+rm vzdump-lxc-112-2018_09_10-13_08_23.tar.gz
+
+lxc-create --name ubuntu-informica --lxcpath=/home/ayudin/VirtualBox/lxc --template ubuntu
+lxc-start -d --name  ubuntu-informica --lxcpath=/home/ayudin/VirtualBox/lxc
+lxc-stop --name  ubuntu-informica --lxcpath=/home/ayudin/VirtualBox/lxc
+lxc-attach --name  ubuntu-informica --lxcpath=/home/ayudin/VirtualBox/lxc
+
+lxc-create --name ubuntu-jasper --lxcpath=/home/ayudin/VirtualBox/lxc --template ubuntu
+lxc-start -d --name  ubuntu-jasper --lxcpath=/home/ayudin/VirtualBox/lxc
+lxc-stop --name  ubuntu-jasper --lxcpath=/home/ayudin/VirtualBox/lxc
+lxc-attach --name  ubuntu-jasper --lxcpath=/home/ayudin/VirtualBox/lxc
+
+lxc-create --name ubuntu-postgres105 --lxcpath=/home/ayudin/VirtualBox/lxc --template ubuntu
+nano /home/ayudin/VirtualBox/lxc/ubuntu-postgres105/rootfs/etc/network/interfaces
+================================== dhcp ====================================================
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+==============================================================================================
+lxc-start -d --name  ubuntu-postgres105 --lxcpath=/home/ayudin/VirtualBox/lxc
+lxc-stop --name  ubuntu-postgres105 --lxcpath=/home/ayudin/VirtualBox/lxc
+lxc-attach --name  ubuntu-postgres105 --lxcpath=/home/ayudin/VirtualBox/lxc
+
+lxc-ls --lxcpath=/home/ayudin/VirtualBox/lxc -f
+
+
+useradd -m -G sudo -s /bin/bash postgres
+passwd postgres
+
+wget http://ftp.postgresql.org/pub/pgadmin/pgadmin4/v3.3/pip/pgadmin4-3.3-py2.py3-none-any.whl
+
+
+
+================================== static ====================================================
+auto lo
+iface lo inet loopback
+iface lo inet6 loopback
+
+auto eth0
+iface eth0 inet static
+        address 192.168.4.207
+        netmask 255.255.248.0
+        gateway 192.168.3.5
+==============================================================================================
+
+
+
+102 - Jasper
+103 - Jenkins
+104 - GitHub
+105 - Testing
+111 - pgtest
+112 - frepple-500
+113 - pg-500
+114 - frepple-710
+115 - pg-710
+
+curl -X GET -H "Content-type: application/json" -H "Accept: application/json" http://10.0.3.227:8080/jasperserver/rest_v2/serverInfo
+
+./configure --add-module=../nginx-upload-module --with-pcre=../pcre/ --with-openssl=../openssl/ --with-zlib=../zlib/

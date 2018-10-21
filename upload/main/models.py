@@ -17,14 +17,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 '''
 
-from django.core.files.storage import FileSystemStorage
-from django.conf import settings
-from django.db import models
-import uuid
-import time
 import hashlib
 import os
+import time
 
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+from django.db import models
 
 
 ################################################################################
@@ -43,10 +42,8 @@ class OverwriteStorage(FileSystemStorage):
         return name
 
 
-
 ################################################################################
 # Models 
-
 
 
 class ImageFile(models.Model):
@@ -76,12 +73,11 @@ class ImageFile(models.Model):
             self._md5 = md5.hexdigest()
         return self._md5
 
-
     def delete(self, delete_file=True, *args, **kwargs):
         '''delete the file and make sure to also delete from storage'''
         if self.file:
             storage, path = self.file.storage, self.file.path
-        super(ImageFile, self).delete(*args, **kwargs)
+        super().delete(*args, **kwargs)
         if self.file and delete_file:
             storage.delete(path)
 

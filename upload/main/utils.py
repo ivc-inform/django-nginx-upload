@@ -17,12 +17,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 '''
 
+import os
+import shutil
+
 from upload.main.models import ImageFile
 from upload.settings import MEDIA_ROOT
-import shutil
-import uuid
-import json
-import os
 
 
 def move_upload_to_storage(source, name):
